@@ -1,0 +1,55 @@
+mkdir server
+
+cd server/
+git init
+
+mkdir client1
+
+cd client1/
+git init
+gedit text
+git add text
+git commit -m "klientas1"
+
+git remote add origin /home/lbr/2/server/
+git push origin master
+
+cd /home/lbr/server/
+git config --bool core.bare true
+cd
+cd lbr/client1/
+git push origin master
+
+cd lbr/
+mkdir client2
+cd client2
+
+git init
+git remote add origin /home/lbr/server/
+git pull origin master
+
+git add text
+git commit -m "klientas2"
+git push origin master
+
+cd lbr/client1/
+git pull origin master
+
+git add text
+git commit -m "pirmas"
+git push origin master
+
+cd lbr/2/client2/
+git add text
+git commit -m "antras"
+
+git push origin master
+git pull origin master
+
+git add text
+git commit -m "antras"
+git push origin master
+git commit -m "antras"
+git push origin master
+cd lbr/client1/
+git pull origin master
